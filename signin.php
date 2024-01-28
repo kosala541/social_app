@@ -86,11 +86,6 @@ if (isset($_COOKIE['password'])) {
                                                                 } else {
                                                                     echo $password;
                                                                 } ?>" id="password" class="form-control">
-
-                <div class="text-end mt-3">
-                    <a href="" class="text-danger opacity-75 text-decoration-none">Forgot Password?</a>
-                </div>
-
                 <?php
                 if ($error != "") {
                 ?>
