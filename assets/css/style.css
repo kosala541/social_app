@@ -1,0 +1,37 @@
+body {
+    background-color: #F0F2F5;
+}
+
+.top-bar .active {
+    border-bottom: 3px solid #72DCCE;
+}
+
+.top-bar .active a {
+    color: #414141;
+}
+
+.top-bar a {
+    color: #9b9b9b;
+}
+
+.edit-btn {
+    outline: none;
+    border: none;
+    background-color: #556080;
+    font-size: 12px;
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.delete-btn {
+    outline: none;
+    border: none;
+    background-color: #b85552;
+    font-size: 12px;
+    width: auto;
+    height: 25px;
+    border-radius: 5px;
+    color: #fff;
+}
