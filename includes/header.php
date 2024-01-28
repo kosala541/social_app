@@ -1,5 +1,6 @@
 <?php
-define('ROOT', 'http://localhost/wemixt/ac-test-1/');
+define('ROOT', 'https://splendid-marigold-c04f49.netlify.app/');
+// define('ROOT', 'http://localhost/wemixt/ac-test-1/');
 define('ASSETS_ROOT', ROOT . 'assets/');
 define('LOGO', ASSETS_ROOT . 'images/favicon.png');
 ?>
