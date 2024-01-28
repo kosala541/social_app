@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error = "Could not upload image";
             }
         }
-
+        // print_r($post_img);
         if (empty($post) && empty($post_img)) {
             $error = "Please enter your post details";
         } else {

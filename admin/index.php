@@ -2,6 +2,13 @@
 session_start();
 require "../includes/connection.php";
 
+if (!isset($_SESSION["user"])) {
+    header("Location:../signin.php");
+}
+if ($_SESSION["user"]["user_type_id"] != 1) {
+    header("Location:../signin.php");
+}
+
 $query1 = "SELECT * FROM `post`";
 $result1 = mysqli_query($connection, $query1);
 $all_post = mysqli_num_rows($result1);

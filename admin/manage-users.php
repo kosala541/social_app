@@ -2,6 +2,13 @@
 session_start();
 require "../includes/connection.php";
 
+if (!isset($_SESSION["user"])) {
+    header("Location:../signin.php");
+}
+if ($_SESSION["user"]["user_type_id"] != 1) {
+    header("Location:../signin.php");
+}
+
 $query2 = "SELECT * FROM `user` WHERE `ID` !='" . $_SESSION["user"]["id"] . "'
  ORDER BY `register_date` DESC";
 $result = mysqli_query($connection, $query2);

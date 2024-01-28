@@ -60,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $dp_path = $folder . time() . $_FILES['profile_img']['name'];
                         move_uploaded_file($_FILES['profile_img']['tmp_name'], $destination);
 
-                        if (file_exists($user_data["dp_path"])) {
-                            unlink($user_data["dp_path"]);
+                        if (file_exists("../" . $user_data["dp_path"])) {
+                            unlink("../" . $user_data["dp_path"]);
                         }
                     } else {
                         $error = "This file type is not allowed";

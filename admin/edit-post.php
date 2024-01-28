@@ -1,6 +1,14 @@
 <?php
 session_start();
 require "../includes/connection.php";
+
+if (!isset($_SESSION["user"])) {
+    header("Location:../signin.php");
+}
+if ($_SESSION["user"]["user_type_id"] != 1) {
+    header("Location:../signin.php");
+}
+
 if (isset($_GET['post_id'])) {
 
     $query2 = "SELECT * FROM `post` 
@@ -42,12 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($_FILES['post_img']['error'] == 0) {
                 if (in_array($_FILES['post_img']['type'], $allowed)) {
 
-                    $destination = $folder . time() . $_FILES['post_img']['name'];
+                    $destination = "../" . $folder . time() . $_FILES['post_img']['name'];
+                    $post_img = $folder . time() . $_FILES['post_img']['name'];
                     move_uploaded_file($_FILES['post_img']['tmp_name'], $destination);
 
-                    $post_img = $destination;
-                    if (file_exists($post_data["image_path"])) {
-                        unlink($post_data["image_path"]);
+                    if (file_exists("../" . $post_data["image_path"])) {
+                        unlink("../" . $post_data["image_path"]);
                     }
                 } else {
                     $error = "This file type is not allowed";
@@ -63,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "";
 
             $query = "UPDATE post SET `post`='" . $post . "',
-        `image_path`='" . $post_img . "',`post_status_id`='1'
+        `image_path`='" . $post_img . "',`post_status_id`='2'
          WHERE `post_id`='" . $_GET['post_id'] . "'";
 
             mysqli_query($connection, $query);
